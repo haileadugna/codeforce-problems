@@ -14,12 +14,12 @@ for row in range(n):
         if grid[row][col] == "T":
             loc_e = [row, col]
 
-diff = abs(loc_s[0] - loc_e[0])
-start = min(loc_e[0], loc_s[0])
-count = 0
-for i in range(m):
+# diff = abs(loc_s[0] - loc_e[0])
+# start = min(loc_e[0], loc_s[0])
+# count = 0
+# for i in range(m):
 
-    cnt = 0
+#     cnt = 0
     for j in range(start, start + diff ) :
         if grid[j][i] == "*":
             break
