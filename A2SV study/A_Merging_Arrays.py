@@ -1,0 +1,18 @@
+n, m = map(int, input().split())
+arrone = list(map(int, input().split()))
+arrtwo = list(map(int, input().split()))
+
+point1 = 0
+point2  = 0
+res = []
+while point1 < n and point2 < m:
+    if arrone[point1] <= arrtwo[point2]:
+        res.append(arrone[point1])
+        point1 += 1
+    else:
+        res.append(arrtwo[point2])
+        point2 += 1
+ 
+res.extend(arrone[point1:])
+res.extend(arrtwo[point2:])
+print(*res)
