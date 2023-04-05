@@ -2,9 +2,15 @@ import math
 import bisect
 l, r = map(int, input().split())
 
-nums = []
-for i in range(math.ceil(math.log2(10**18))):
-    nums.append(2**i)
+num = l ^ r
+bit_k = bin(num)
+le = len(bit_k)
+ans = num
+for i in range(2, len(bit_k)):
+    if bit_k[i] == "0":
+        ans += 2**(le - i - 1)
 
-left = bisect.bisect_right(nums, l)
-print(nums[left])
+if l == r:
+    print(num)
+else:
+    print(ans)

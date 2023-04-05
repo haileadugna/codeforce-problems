@@ -13,7 +13,15 @@ for _ in range(test):
         dictt[2**i] = []
 
     for j in range( n):
-        tmp = math.ceil(math.log2(nums[j])) 
+        tmp = int(math.log2(nums[j])) 
         dictt[2**tmp].append(nums[j])
 
-    print(dictt)
+    for num in list(dictt.keys()):
+        if len(dictt[num]) < 2:
+            continue
+        elif len(dictt[num]) == 2:
+            ans += 1
+        else:
+            n = len(dictt[num])
+            ans += (n * n -n) // 2
+    print(ans)
