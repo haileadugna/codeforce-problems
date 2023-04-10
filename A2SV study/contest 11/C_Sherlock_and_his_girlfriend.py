@@ -1,28 +1,27 @@
 num = int(input())
 num += 1
-factorization = []
+factorization = set()
 d = 2
-res = []
+ 
 for n in range(2, num + 1):
-    temp = []
     while d * d <= n:
         while n % d == 0:
-            temp.append(d)
+            factorization.add(d)
             n //= d
         d += 1
     if n > 1:
-        temp.append(n)
-    
-    if len(temp) == 1:
+        factorization.add(n)
+ 
+res = []
+for nu in range(2, num + 1):
+    if nu in factorization:
         res.append(1)
     else:
-        res.append(len(temp))
+        res.append(2)
 
-# for nu in range(2, num + 1):
-#     if nu in factorization:
-#         res.append(1)
-#     else:
-#         res.append(2)
-
-print(max(res))
-print(*res)
+if num < 2:
+    print(1)
+    print(1)
+else:
+    print(max(res))
+    print(*res)
